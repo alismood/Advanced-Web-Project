@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light custom-header sticky-top">
+  <nav class="navbar navbar-expand-lg custom-header sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
         <img src="images/icon.ico" alt="Logo" width="30" height="30" class="me-2">
@@ -26,9 +26,16 @@
           <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
+        <div class="navbar-tools ms-lg-3">
+          <button type="button" id="theme-toggle" class="btn btn-sm btn-outline-secondary" aria-pressed="false">Use dark theme</button>
+          <a href="contact.html#sign-in" class="btn btn-sm btn-outline-danger signed-out-only">Sign in</a>
+          <span class="signed-in-only user-greeting" hidden>Hi, <span class="user-name"></span></span>
+          <button type="button" class="btn btn-sm btn-outline-danger sign-out signed-in-only" hidden>Sign out</button>
+        </div>
       </div>
     </div>
   </nav>
+  <p id="storage-status" class="container text-danger mt-3 mb-0" role="status" hidden></p>
   
   <main class="bg-about">
     <div class="container">
@@ -45,7 +52,7 @@
           <div class="card h-100">
             <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=400&q=80" class="card-img-top chef-img" alt="Chef working in a kitchen">
             <div class="card-body">
-              <h5 class="card-title text-dark">Zhabaikhan Ali</h5>
+              <h5 class="card-title text-body">Zhabaikhan Ali</h5>
               <p class="card-text text-muted">Recipe Share team member.</p>
             </div>
           </div>
@@ -54,7 +61,7 @@
           <div class="card h-100">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVHrs0iSagEhD1ojnYFFGTd2JroV9zBdcEIPYgzdg0_A&s=10" class="card-img-top chef-img" alt="Chef working in a kitchen">
             <div class="card-body">
-              <h5 class="card-title text-dark">Diyar Kabyken</h5>
+              <h5 class="card-title text-body">Diyar Kabyken</h5>
               <p class="card-text text-muted">Recipe Share team member.</p>
             </div>
           </div>
@@ -63,7 +70,7 @@
           <div class="card h-100">
             <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=400&q=80" class="card-img-top chef-img" alt="Chef working in a kitchen">
             <div class="card-body">
-              <h5 class="card-title text-dark">Abdul Mobin</h5>
+              <h5 class="card-title text-body">Abdul Mobin</h5>
               <p class="card-text text-muted">Recipe Share team member.</p>
             </div>
           </div>

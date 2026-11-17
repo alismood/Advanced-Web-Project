@@ -55,6 +55,18 @@ The forms check required fields, email format, password length, and matching pas
 <img width="762" height="371" alt="Screenshot 2026-11-11 at 18 31 29" src="https://github.com/user-attachments/assets/c6792e4b-69a7-4993-960b-efddb0c80390" />
 
 
+## Theme
+
+The theme button switches every page between light and dark colors. The choice is saved in localStorage and stays after refreshing or opening another page.
+
+[Paste screenshots of the light and dark themes here.]
+
+## Sign In
+
+The sign-in form checks the name and email, then saves them in localStorage on this browser. A welcome message and sign-out button appear on every page, and signing out removes the saved user details. This is a local demo and does not check account passwords.
+
+[Paste screenshots of the sign-in form and welcome message here.]
+
 ## Layout
 
 Recipe cards use Flexbox, and the gallery uses CSS Grid. Bootstrap columns and media queries adjust the pages for small screens.
@@ -63,6 +75,21 @@ Recipe cards use Flexbox, and the gallery uses CSS Grid. Bootstrap columns and m
 
 The website uses HTML, CSS, Bootstrap, JavaScript, and jQuery. The code uses basic variables, arrays, loops, functions, events, and page updates.
 
+<<<<<<< HEAD
+=======
+## Files
+
+The five HTML files contain the pages, and css/style.css contains the styles. The interactive features are in js/script.js, and the Bootstrap and jQuery libraries are in vendor.
+
+## Run
+
+Open the website with a local web server, such as VS Code Live Server, so saved details work across pages. Bootstrap and jQuery are included locally, but the food photos need an internet connection.
+
+## Contributions
+
+Add the work each member completed below. Replace the placeholders with your own details.
+
+>>>>>>> d545d67 (init)
 ### Zhabaikhan Ali
 
 

@@ -1,4 +1,71 @@
 $(document).ready(function () {
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var currentUser = null;
+  var theme = "light";
+
+  // Restore the saved theme and non-sensitive sign-in details.
+  try {
+    if (localStorage.getItem("recipeShareTheme") == "dark") {
+      theme = "dark";
+    }
+    var savedUser = JSON.parse(localStorage.getItem("recipeShareUser"));
+    if (savedUser && typeof savedUser.name == "string" && savedUser.name.trim().length > 0 &&
+        savedUser.name.length <= 80 && typeof savedUser.email == "string" && emailPattern.test(savedUser.email)) {
+      currentUser = { name: savedUser.name, email: savedUser.email };
+    }
+  } catch (error) {
+    // Start signed out when storage is unavailable or contains invalid data.
+  }
+
+  function showStorageError() {
+    $("#storage-status").prop("hidden", false).text("Your browser could not save this change. Please allow site storage and try again.");
+  }
+
+  function applyTheme() {
+    $("html").attr("data-bs-theme", theme);
+    $("#theme-toggle").attr("aria-pressed", theme == "dark" ? "true" : "false")
+      .text(theme == "dark" ? "Use light theme" : "Use dark theme");
+  }
+
+  function updateAccount() {
+    var signedIn = currentUser != null;
+    $(".signed-in-only").prop("hidden", !signedIn);
+    $(".signed-out-only").prop("hidden", signedIn);
+    $(".user-name").text(signedIn ? currentUser.name : "");
+    $(".user-email").text(signedIn ? currentUser.email : "");
+  }
+
+  applyTheme();
+  updateAccount();
+
+  $("#theme-toggle").on("click", function () {
+    theme = theme == "dark" ? "light" : "dark";
+    applyTheme();
+    try {
+      localStorage.setItem("recipeShareTheme", theme);
+      $("#storage-status").prop("hidden", true);
+    } catch (error) {
+      showStorageError();
+    }
+  });
+
+  $(".sign-out").on("click", function () {
+    try {
+      localStorage.removeItem("recipeShareUser");
+      currentUser = null;
+      updateAccount();
+      $("#storage-status").prop("hidden", true);
+      $("#sign-in-status").text("You are signed out.");
+      if ($("#sign-in-name").length) {
+        $("#sign-in-name").trigger("focus");
+      } else {
+        $(".signed-out-only").first().trigger("focus");
+      }
+    } catch (error) {
+      showStorageError();
+    }
+  });
+
   // Search the existing recipe cards by text and category.
   var selectedCategory = "all";
 
@@ -120,8 +187,6 @@ $(document).ready(function () {
   });
 
   // Show text feedback beside each form field.
-  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   function showFeedback(field, valid, message) {
     field.toggleClass("is-invalid", !valid).toggleClass("is-valid", valid);
     field.attr("aria-invalid", valid ? "false" : "true");
@@ -169,7 +234,7 @@ $(document).ready(function () {
     $("#password-strength").removeClass("weak medium strong").addClass(strength).text(label);
   }
 
-  $("#contact-form input, #contact-form textarea, #registration-form input").on("input blur", function () {
+  $("#contact-form input, #contact-form textarea, #registration-form input, #sign-in-form input").on("input blur", function () {
     validateField($(this));
     $(this).closest("form").find("[role='status']").not("#password-strength").text("");
     if ($(this).attr("id") == "register-password") {
@@ -180,7 +245,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#contact-form, #registration-form").on("submit", function (event) {
+  $("#contact-form, #registration-form, #sign-in-form").on("submit", function (event) {
     event.preventDefault();
     var valid = true;
     $(this).find("input, textarea").each(function () {
@@ -195,7 +260,22 @@ $(document).ready(function () {
       $(this).find(".is-invalid").first().trigger("focus");
       return;
     }
-    if ($(this).attr("id") == "registration-form") {
+    if ($(this).attr("id") == "sign-in-form") {
+      var user = { name: $("#sign-in-name").val().trim(), email: $("#sign-in-email").val().trim() };
+      try {
+        localStorage.setItem("recipeShareUser", JSON.stringify(user));
+        currentUser = user;
+        this.reset();
+        $(this).find("input").removeClass("is-valid is-invalid").removeAttr("aria-invalid");
+        $(this).find(".field-feedback").text("");
+        status.text("");
+        updateAccount();
+        $("#storage-status").prop("hidden", true);
+        $("#sign-in-summary").trigger("focus");
+      } catch (error) {
+        showStorageError();
+      }
+    } else if ($(this).attr("id") == "registration-form") {
       status.text("Registration details are valid. This practice form does not create an account.");
     } else {
       status.text("Your message is valid. This practice form does not send messages.");

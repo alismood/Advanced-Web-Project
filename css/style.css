@@ -5,6 +5,17 @@
   --primary-color: #d9534f;
   --bg-light: #f8f9fa;
   --text-dark: #333333;
+  --surface: #ffffff;
+  --border-color: #dddddd;
+  --soft-background: #f1f3f5;
+}
+
+:root[data-bs-theme="dark"] {
+  --bg-light: #171b20;
+  --text-dark: #e9ecef;
+  --surface: #252a31;
+  --border-color: #495057;
+  --soft-background: #343a40;
 }
 
 body {
@@ -23,7 +34,7 @@ main {
 
 .custom-header {
   border-bottom: 2px solid var(--primary-color);
-  background-color: #ffffff;
+  background-color: var(--surface);
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -74,8 +85,8 @@ main {
 .recipe-horizontal-card { 
   display: flex; 
   flex-direction: column; 
-  background: #fff; 
-  border: 1px solid #ddd; 
+  background: var(--surface);
+  border: 1px solid var(--border-color);
   overflow: hidden; 
 }
 
@@ -126,8 +137,8 @@ transition: transform 0.3s ease-in-out;
 
 .search-panel, .recipe-notebook, .registration-panel, .home-feature {
   padding: 24px;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
 }
 
@@ -159,7 +170,7 @@ footer p {
   padding: 8px 12px;
   margin: 10px 0;
   border-left: 4px solid #6c757d;
-  background: #f1f3f5;
+  background: var(--soft-background);
   font-size: 0.9rem;
 }
 
@@ -241,5 +252,67 @@ footer p {
 
   #lightbox-image {
     height: 55vh;
+  }
+}
+
+/* Theme and account controls */
+.navbar-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.user-greeting {
+  max-width: 180px;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+}
+
+#sign-in, #sign-in-heading {
+  scroll-margin-top: 90px;
+}
+
+#sign-in-summary {
+  overflow-wrap: anywhere;
+}
+
+[data-bs-theme="dark"] .nav-link:hover,
+[data-bs-theme="dark"] .nav-link:focus,
+[data-bs-theme="dark"] .text-danger,
+[data-bs-theme="dark"] .password-strength.weak {
+  color: #ff9b9b !important;
+}
+
+[data-bs-theme="dark"] .text-success,
+[data-bs-theme="dark"] .password-strength.strong {
+  color: #7bdca8 !important;
+}
+
+[data-bs-theme="dark"] .password-strength.medium {
+  color: #ffd078;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger {
+  --bs-btn-color: #ff9b9b;
+  --bs-btn-border-color: #ff9b9b;
+}
+
+[data-bs-theme="dark"] .navbar .nav-link {
+  color: #ced4da;
+}
+
+[data-bs-theme="dark"] .navbar .nav-link.active {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+  --bs-btn-color: #ced4da;
+  --bs-btn-border-color: #adb5bd;
+}
+
+@media (max-width: 991px) {
+  .navbar-tools {
+    padding: 12px 0;
   }
 }
