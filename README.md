@@ -75,23 +75,13 @@ Recipe cards use Flexbox, and the gallery uses CSS Grid. Bootstrap columns and m
 
 The website uses HTML, CSS, Bootstrap, JavaScript, and jQuery. The code uses basic variables, arrays, loops, functions, events, and page updates.
 
-<<<<<<< HEAD
-=======
+
 ## Files
 
 The five HTML files contain the pages, and css/style.css contains the styles. The interactive features are in js/script.js, and the Bootstrap and jQuery libraries are in vendor.
 
-## Run
-
-Open the website with a local web server, such as VS Code Live Server, so saved details work across pages. Bootstrap and jQuery are included locally, but the food photos need an internet connection.
-
 ## Contributions
-
-Add the work each member completed below. Replace the placeholders with your own details.
-
->>>>>>> d545d67 (init)
 ### Zhabaikhan Ali
-
 
 Did the Home page and about page
 
