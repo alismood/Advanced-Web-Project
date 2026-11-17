@@ -316,3 +316,104 @@ footer p {
     padding: 12px 0;
   }
 }
+
+/* Frequently asked questions */
+.faq-item {
+  margin-top: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-dark);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  background: var(--surface);
+  color: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.faq-question:hover {
+  background: var(--soft-background);
+}
+
+.faq-question:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: -4px;
+}
+
+.faq-indicator {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 16px 16px;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+#faq {
+  scroll-margin-top: 90px;
+}
+
+/* Online recipe search */
+#online-recipes {
+  scroll-margin-top: 90px;
+}
+
+.online-search-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.online-search-controls .btn {
+  flex-shrink: 0;
+}
+
+.online-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.online-recipe-card {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.online-recipe-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.online-instructions {
+  white-space: pre-line;
+}
+
+@media (max-width: 575px) {
+  .online-search-controls {
+    flex-direction: column;
+  }
+
+  .online-results {
+    grid-template-columns: 1fr;
+  }
+}

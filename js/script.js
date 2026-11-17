@@ -66,6 +66,14 @@ $(document).ready(function () {
     }
   });
 
+  // Open and close the FAQ answers.
+  $(".faq-question").on("click", function () {
+    var expanded = $(this).attr("aria-expanded") == "true";
+    $(this).attr("aria-expanded", expanded ? "false" : "true");
+    $(this).find(".faq-indicator").text(expanded ? "+" : "−");
+    $("#" + $(this).attr("aria-controls")).stop(true, true).slideToggle(200);
+  });
+
   // Search the existing recipe cards by text and category.
   var selectedCategory = "all";
 
@@ -93,6 +101,65 @@ $(document).ready(function () {
     $(".category-filter").removeClass("btn-danger").addClass("btn-outline-danger").attr("aria-pressed", "false");
     $(this).removeClass("btn-outline-danger").addClass("btn-danger").attr("aria-pressed", "true");
     filterRecipes();
+  });
+
+  // Search TheMealDB and display the JSON results.
+  $("#online-recipe-form").on("submit", function (event) {
+    event.preventDefault();
+    var search = $("#online-search").val().trim();
+    var status = $("#online-status");
+    var results = $("#online-results");
+    if (search.length == 0) {
+      status.addClass("text-danger").text("Please enter a dish name.");
+      $("#online-search").trigger("focus");
+      return;
+    }
+
+    results.empty().attr("aria-busy", "true");
+    status.removeClass("text-danger").text("Loading recipes…");
+    $("#online-search-button, #online-search").prop("disabled", true);
+
+    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + encodeURIComponent(search))
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.meals == null || (Array.isArray(data.meals) && data.meals.length == 0)) {
+          status.text("No recipes found. Try another dish name.");
+          return;
+        }
+        if (!Array.isArray(data.meals)) {
+          throw new Error("Invalid recipe data");
+        }
+        for (var i = 0; i < data.meals.length; i++) {
+          var meal = data.meals[i];
+          var card = $("<article>").addClass("online-recipe-card");
+          if (typeof meal.strMealThumb == "string" && meal.strMealThumb.indexOf("https://www.themealdb.com/images/") == 0) {
+            $("<img>").attr({ src: meal.strMealThumb, alt: meal.strMeal, loading: "lazy" }).appendTo(card);
+          }
+          var body = $("<div>").addClass("p-3");
+          $("<h3>").addClass("h5").text(meal.strMeal).appendTo(body);
+          $("<p>").addClass("text-muted").text(meal.strCategory || "Recipe").appendTo(body);
+          var details = $("<details>");
+          $("<summary>").text("Cooking instructions").appendTo(details);
+          $("<p>").addClass("online-instructions mt-2 mb-0").text(meal.strInstructions || "No instructions available.").appendTo(details);
+          body.append(details);
+          card.append(body);
+          results.append(card);
+        }
+        status.text(data.meals.length + (data.meals.length == 1 ? " recipe found." : " recipes found."));
+      })
+      .catch(function () {
+        results.empty();
+        status.addClass("text-danger").text("Could not load recipes. Check your connection and try again.");
+      })
+      .then(function () {
+        results.attr("aria-busy", "false");
+        $("#online-search-button, #online-search").prop("disabled", false);
+      });
   });
 
   // Keep table records in an array until the page is reloaded.
