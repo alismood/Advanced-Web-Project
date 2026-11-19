@@ -343,9 +343,9 @@ $(document).ready(function () {
         showStorageError();
       }
     } else if ($(this).attr("id") == "registration-form") {
-      status.text("Registration details are valid. This practice form does not create an account.");
+      status.text("Registration details are valid. This demo does not create an account.");
     } else {
-      status.text("Your message is valid. This practice form does not send messages.");
+      status.text("Your message is valid. This demo does not send email.");
     }
   });
 

@@ -69,11 +69,6 @@ main {
   border-radius: 8px;
 }
 
-.chef-img { 
-  height: 200px; 
-  object-fit: cover; 
-}
-
 /* Recipe Flexbox layout */
 
 .recipe-flex-container { 

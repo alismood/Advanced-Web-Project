@@ -1,46 +1,57 @@
 # Recipe Share
-[OurWebsite](https://alismood.github.io/Web-dev-midterm/)
 
-## Description
+A responsive recipe website and front-end portfolio project maintained by Zhabaikhan Ali. Browse dishes, search live recipe data, and explore interactive layouts and forms.
 
-Recipe Share is a website for finding simple dishes and reading cooking steps. It has five pages and works on phones, tablets, and computers.
+[Live demo](https://alismood.github.io/Web-dev-midterm/) · [Source code](https://github.com/alismood/Web-dev-midterm)
 
-## Team
+![Recipe Share home page](images/screenshots/home.png)
 
-Our group is IT-2503. The members are Zhabaikhan Ali, Abdul Mobin, and Diyar Kabyken.
+## Features
 
-## Home
+- Case-insensitive recipe search and category filters.
+- Live recipe search with TheMealDB, including loading, empty, and error states.
+- A recipe list with add, edit, delete, and confirmation controls.
+- A photo lightbox with previous and next controls, keyboard navigation, and fade effects.
+- Light and dark themes saved across pages and refreshes.
+- Expandable FAQ answers with keyboard-accessible buttons.
+- Form validation, password strength feedback, and a local sign-in demo.
 
-The home page introduces the website. It has links to the recipes, gallery, and contact page.
+## Built With
 
-<img width="1470" height="836" alt="Screenshot 2026-11-11 at 18 28 27" src="https://github.com/user-attachments/assets/429ea09c-76b8-4c39-bf60-a89d8a7ac09b" />
+HTML, CSS, Bootstrap, JavaScript, and jQuery. The layouts use Flexbox, CSS Grid, and media queries, while API requests use fetch() and JSON.
 
+## Project Structure
 
-## About
+The five HTML files contain Home, About, Recipes, Gallery, and Forms pages. Shared styles are in css/style.css, interactive features are in js/script.js, and bundled libraries are in vendor.
 
-The about page explains the website. It also shows the three team members.
-<img width="1470" height="834" alt="Screenshot 2026-11-11 at 18 28 41" src="https://github.com/user-attachments/assets/b52e678a-fd56-4df3-92a5-b04bd39d643d" />
+## Run Locally
 
+Clone or download this repository and open the folder in VS Code. Start Live Server and open index.html through the local server so browser storage works consistently across pages.
 
-## FAQ
+## Implementation
 
-The About page has five common questions about using Recipe Share. Answers open and close with jQuery slideToggle(), and a plus or minus sign shows whether each answer is open.
+The theme and local sign-in state use localStorage, and the FAQ and gallery use jQuery events and effects. Recipe data is rendered into cards with text-safe DOM updates, and failed API requests show a retry message.
 
+<<<<<<< HEAD
 <img width="1289" height="653" alt="Screenshot 2026-11-19 at 10 28 33" src="https://github.com/user-attachments/assets/aa1c5cdf-0c8b-4157-90b5-d466e72fe3b5" />
 
+=======
+## Demo Limits
+>>>>>>> db40fc4 (init)
 
-## Recipes
+Sign-in stores a name and email on this browser and does not authenticate a real account. Contact and registration validate input without sending messages or creating accounts, and the recipe list resets on page reload.
 
-Users can search recipes by name or ingredient and filter them by category. The results change as they type, and the search works with uppercase and lowercase letters.
+Online recipes and remote photos need an internet connection. Clear the saved sign-in details using Sign out; the theme setting stays saved separately.
 
-<img width="1466" height="327" alt="Screenshot 2026-11-11 at 18 29 10" src="https://github.com/user-attachments/assets/06118e46-ee7d-4b24-b381-17107024a181" />
-<img width="1470" height="646" alt="Screenshot 2026-11-11 at 18 29 24" src="https://github.com/user-attachments/assets/cca4ef0c-85f6-4bab-a750-049bcf6b02fa" />
+## Mobile Preview
 
+The layout adapts to narrow screens, including the navigation, recipe cards, and forms. Both themes use the same responsive structure.
 
-## Online Recipes
+![Recipe Share FAQ in dark mode on mobile](images/screenshots/mobile.png)
 
-Users can search for dishes from [TheMealDB](https://www.themealdb.com/docs_api_guide.php) with fetch() and view the JSON results as recipe cards. Each card shows a name, photo, category, and cooking instructions. Messages show when recipes are loading, no matches are found, or the request fails.
+## Credits
 
+<<<<<<< HEAD
 <img width="1291" height="647" alt="Screenshot 2026-11-19 at 10 29 05" src="https://github.com/user-attachments/assets/969ada3f-8a62-47f2-aaef-81b00980e016" />
 
 
@@ -129,3 +140,10 @@ Repository: https://github.com/alismood/Web-dev-midterm
 ## Development Support
 
 AI tools supported development, testing, and troubleshooting
+=======
+Recipe data comes from [TheMealDB](https://www.themealdb.com/docs_api_guide.php), and food photos are hosted on Unsplash. Bootstrap and jQuery retain their original license notices in vendor.
+
+## Development Support
+
+AI tools supported development, testing, and troubleshooting. The project demonstrates browser storage, API requests, DOM updates, accessible controls, and responsive CSS.
+>>>>>>> db40fc4 (init)
