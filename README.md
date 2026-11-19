@@ -8,7 +8,7 @@
 - Open Gallery to enlarge photos, or About to read the FAQ; use the navigation button to switch between light and dark themes.
 - The Forms page demonstrates validation and local sign-in without sending messages or creating real accounts; the recipe list resets when you reload the page.
 
-## Technologies I Learned
+## Technologies Learned
 
 - **HTML:** page structure, forms, tables, and accessibility attributes.
 - **CSS:** styling, Flexbox, Grid, and responsive layouts with media queries.
