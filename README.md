@@ -26,7 +26,8 @@ The about page explains the website. It also shows the three team members.
 
 The About page has five common questions about using Recipe Share. Answers open and close with jQuery slideToggle(), and a plus or minus sign shows whether each answer is open.
 
-[Paste a screenshot of the FAQ with an open answer here.]
+<img width="1289" height="653" alt="Screenshot 2026-11-19 at 10 28 33" src="https://github.com/user-attachments/assets/aa1c5cdf-0c8b-4157-90b5-d466e72fe3b5" />
+
 
 ## Recipes
 
@@ -40,9 +41,11 @@ Users can search recipes by name or ingredient and filter them by category. The 
 
 Users can search for dishes from [TheMealDB](https://www.themealdb.com/docs_api_guide.php) with fetch() and view the JSON results as recipe cards. Each card shows a name, photo, category, and cooking instructions. Messages show when recipes are loading, no matches are found, or the request fails.
 
-[Paste a screenshot of the online recipe results here.]
+<img width="1291" height="647" alt="Screenshot 2026-11-19 at 10 29 05" src="https://github.com/user-attachments/assets/969ada3f-8a62-47f2-aaef-81b00980e016" />
 
-[Paste a screenshot of the no-results or error message here.]
+
+<img width="1278" height="238" alt="Screenshot 2026-11-19 at 10 29 33" src="https://github.com/user-attachments/assets/ffa8c7f6-eda1-4904-ae29-374e4727c9e5" />
+
 
 ## Recipe List
 
@@ -73,13 +76,12 @@ The forms check required fields, email format, password length, and matching pas
 
 The theme button switches every page between light and dark colors. The choice is saved in localStorage and stays after refreshing or opening another page.
 
-[Paste screenshots of the light and dark themes here.]
+<img width="1449" height="799" alt="Screenshot 2026-11-19 at 10 29 56" src="https://github.com/user-attachments/assets/c400f395-5e88-4323-b2cd-d6eb70997cb9" />
+
 
 ## Sign In
 
 The sign-in form checks the name and email, then saves them in localStorage on this browser. A welcome message and sign-out button appear on every page, and signing out removes the saved user details. This is a local demo and does not check account passwords.
-
-[Paste screenshots of the sign-in form and welcome message here.]
 
 ## Layout
 
@@ -89,20 +91,10 @@ Recipe cards use Flexbox, and the gallery uses CSS Grid. Bootstrap columns and m
 
 The website uses HTML, CSS, Bootstrap, JavaScript, and jQuery. The code uses basic variables, arrays, loops, functions, events, and page updates.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e5e6ac2 (init)
 ## Files
 
 The five HTML files contain the pages, and css/style.css contains the styles. The interactive features are in js/script.js, and the Bootstrap and jQuery libraries are in vendor.
 
-<<<<<<< HEAD
-## Contributions
-### Zhabaikhan Ali
-
-Did the Home page and about page
-=======
 ## Run
 
 Open the website with a local web server, such as VS Code Live Server, so saved details work across pages. Bootstrap and jQuery are included locally, but the food photos need an internet connection.
@@ -114,7 +106,7 @@ This is a proposed split of the final work. Confirm that it matches each member'
 ### Zhabaikhan Ali
 
 Earlier work covered the Home and About pages. Final responsibilities are the saved light and dark themes, the FAQ, and their documentation.
->>>>>>> e5e6ac2 (init)
+
 
 ### Abdul Mobin
 
@@ -136,4 +128,4 @@ Repository: https://github.com/alismood/Web-dev-midterm
 
 ## Development Support
 
-AI tools supported development, testing, and troubleshooting. Each member should review the code and understand the features they present.
+AI tools supported development, testing, and troubleshooting
